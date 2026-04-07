@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>YANK Barbearia | Excelência e Estilo</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Manrope:wght@300;400;500;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#2c2c2c",
+                    "on-secondary-container": "#b6baff",
+                    "outline-variant": "#484848",
+                    "on-tertiary-fixed": "#4a4949",
+                    "error-container": "#7f2927",
+                    "surface-container-highest": "#262626",
+                    "tertiary-fixed-dim": "#e8e5e4",
+                    "primary-container": "#930000",
+                    "surface-tint": "#ffb4a8",
+                    "tertiary-dim": "#edeaea",
+                    "secondary-fixed": "#e0e0ff",
+                    "primary-fixed": "#ffdad4",
+                    "outline": "#767575",
+                    "on-surface-variant": "#acabaa",
+                    "on-primary": "#870000",
+                    "on-error-container": "#ff9993",
+                    "error": "#ee7d77",
+                    "surface-container": "#1a1919",
+                    "primary-dim": "#ffa091",
+                    "on-tertiary": "#605f5e",
+                    "primary": "#ffb4a8",
+                    "inverse-primary": "#c20000",
+                    "surface-variant": "#262626",
+                    "tertiary": "#fcf9f8",
+                    "on-tertiary-fixed-variant": "#676666",
+                    "on-background": "#e7e5e4",
+                    "secondary-container": "#0102cc",
+                    "tertiary-container": "#edeaea",
+                    "on-error": "#490106",
+                    "inverse-surface": "#fcf8f8",
+                    "on-secondary-fixed-variant": "#3841e9",
+                    "surface": "#0e0e0e",
+                    "on-surface": "#e7e5e4",
+                    "secondary-dim": "#8d94ff",
+                    "surface-container-low": "#131313",
+                    "inverse-on-surface": "#565554",
+                    "on-secondary-fixed": "#0c11cf",
+                    "surface-dim": "#0e0e0e",
+                    "on-secondary": "#00007b",
+                    "on-primary-fixed": "#850000",
+                    "surface-container-lowest": "#000000",
+                    "secondary": "#8d94ff",
+                    "primary-fixed-dim": "#ffc7be",
+                    "on-primary-container": "#ffc2b8",
+                    "on-tertiary-container": "#575656",
+                    "background": "#0e0e0e",
+                    "secondary-fixed-dim": "#cfd1ff",
+                    "error-dim": "#bb5551",
+                    "surface-container-high": "#202020",
+                    "tertiary-fixed": "#f6f3f2",
+                    "on-primary-fixed-variant": "#bb0000"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .razor-glow {
+            box-shadow: -2px 0 10px -2px rgba(147, 0, 0, 0.4), 2px 0 10px -2px rgba(1, 2, 204, 0.4);
+        }
+        .text-shadow-deep {
+            text-shadow: 0 4px 12px rgba(0,0,0,0.8);
+        }
+        @keyframes sequenceColor {
+            0% { filter: grayscale(1); transform: scale(1); }
+            5% { filter: grayscale(0); transform: scale(1.05); }
+            15% { filter: grayscale(0); transform: scale(1.05); }
+            20% { filter: grayscale(1); transform: scale(1); }
+            100% { filter: grayscale(1); transform: scale(1); }
+        }
+        @keyframes mobileSlide {
+            0%, 15% { transform: translateX(0); }
+            20%, 35% { transform: translateX(-20%); }
+            40%, 55% { transform: translateX(-40%); }
+            60%, 75% { transform: translateX(-60%); }
+            80%, 95% { transform: translateX(-80%); }
+            100% { transform: translateX(0); }
+        }
+        .team-member-1 { animation: sequenceColor 7.5s infinite; animation-delay: 0s; }
+        .team-member-2 { animation: sequenceColor 7.5s infinite; animation-delay: 1.5s; }
+        .team-member-3 { animation: sequenceColor 7.5s infinite; animation-delay: 3s; }
+        .team-member-4 { animation: sequenceColor 7.5s infinite; animation-delay: 4.5s; }
+        .team-member-5 { animation: sequenceColor 7.5s infinite; animation-delay: 6s; }
+        
+        .mobile-slide-container {
+            animation: mobileSlide 7.5s infinite;
+        }
+        @media (min-width: 768px) {
+            .mobile-slide-container {
+                animation: none;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<nav class="bg-[#0e0e0e]/80 backdrop-blur-xl docked full-width top-0 sticky z-50 transition-all duration-300">
+<div class="flex justify-between items-center w-full px-8 py-2 max-w-screen-2xl mx-auto">
+<img src="./Logo YANK - Editado.png" alt="YANK Logo" class="h-14 md:h-24 w-auto object-contain" />
+<div class="hidden md:flex items-center space-x-12">
+<a class="text-white border-b-2 border-[#930000] font-['Noto_Serif'] font-bold tracking-tighter uppercase text-xs" href="#servicos">Serviços</a>
+<a class="text-[#605f5e] uppercase text-xs tracking-widest hover:text-white transition-colors duration-300 font-['Noto_Serif'] font-bold tracking-tighter" href="#equipe">Equipe</a>
+<a class="text-[#605f5e] uppercase text-xs tracking-widest hover:text-white transition-colors duration-300 font-['Noto_Serif'] font-bold tracking-tighter" href="#localizacao">Localização</a>
+</div>
+<a class="inline-block bg-[#930000] px-8 py-2 text-white font-label font-bold tracking-widest text-xs border border-[#ffb4a8]/40 hover:bg-[#c20000] transition-all active:scale-95 shadow-lg shadow-primary/20" href="https://wa.me/558398088795?text=Olá%20gostaria%20de%20marcar%20um%20horário%20na%20barbearia,%20vim%20pelo%20site" target="_blank">
+                AGENDAR
+            </a>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden">
+<div class="absolute inset-0 z-0 bg-black">
+<div class="absolute inset-0 bg-gradient-to-b from-black/70 via-surface/90 to-surface z-10"></div>
+<img alt="Fachada Yank Barbearia" class="w-full h-full object-cover opacity-80" src="./Foto fachada da barbearia.webp"/>
+</div>
+<div class="relative z-20 max-w-4xl mx-auto">
+<!-- Logo as Razor Concept -->
+<div class="mb-8 inline-flex flex-col items-center">
+<span class="material-symbols-outlined text-7xl text-white mb-2" style="font-variation-settings: 'wght' 200;">content_cut</span>
+<div class="h-16 w-[2px] bg-gradient-to-b from-primary to-secondary-container"></div>
+</div>
+<p class="label-md uppercase tracking-[0.2em] text-on-tertiary mb-4 font-bold">Campina Grande, PB</p>
+<h1 class="font-headline text-5xl md:text-8xl font-black text-white leading-tight mb-6 tracking-tighter text-shadow-deep">
+                Excelência e Estilo em Campina Grande
+            </h1>
+<p class="font-body text-xl md:text-2xl text-on-surface-variant mb-12 max-w-2xl mx-auto font-light">
+                A Barbearia do PP e do Maior São João do Mundo!
+            </p>
+<a class="razor-glow inline-block bg-[#930000] text-white px-12 py-5 font-label font-extrabold tracking-[0.2em] text-sm border-x-2 border-white/20 relative overflow-hidden group shadow-2xl" href="https://wa.me/558398088795?text=Olá%20gostaria%20de%20marcar%20um%20horário%20na%20barbearia,%20vim%20pelo%20site" target="_blank">
+<span class="relative z-10">AGENDAR NO WHATSAPP</span>
+<div class="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</a>
+</div>
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-4">
+<div class="h-12 w-[1px] bg-outline-variant/30"></div>
+<span class="text-[10px] tracking-[0.4em] uppercase text-on-tertiary rotate-90 origin-left">Scroll</span>
+</div>
+</header>
+<!-- About Section -->
+<section class="py-32 bg-surface" id="sobre">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="relative group">
+<div class="absolute -top-10 -left-10 w-32 h-32 border-t-2 border-l-2 border-primary/30 transition-all duration-700 group-hover:-top-12 group-hover:-left-12"></div>
+<img alt="Barbeiro Thiago trabalhando" class="w-full aspect-[4/5] object-cover grayscale hover:grayscale-0 transition-all duration-700 rounded-sm" src="./Foto Thiago cortando cabelo.jpeg"/>
+<div class="absolute -bottom-6 -right-2 md:-bottom-8 md:-right-8 bg-surface-container-highest/95 border border-outline-variant/20 py-4 px-8 md:py-6 md:px-10 max-w-[280px] md:max-w-[350px] shadow-2xl backdrop-blur-md">
+    <div class="w-12 h-[2px] bg-primary mb-3"></div>
+    <p class="font-headline text-white text-base md:text-xl italic leading-tight">"O estilo que dita o seu legado e excelência."</p>
+</div>
+</div>
+<div class="space-y-8">
+<span class="text-on-tertiary uppercase tracking-[0.2em] font-bold text-xs">Nossa Herança</span>
+<h2 class="font-headline text-5xl text-white leading-tight">Onde a tradição encontra a precisão cirúrgica.</h2>
+<div class="w-12 h-[2px] bg-primary"></div>
+<p class="font-body text-lg text-on-surface-variant leading-relaxed">
+                    A Yank une a tradição da barbearia clássica com técnicas modernas, tudo em um espaço exclusivo com um design limpo e moderno. Mais do que cuidar do seu cabelo ou barba, somos focados em renovar e elevar a sua autoimagem.
+                </p>
+<p class="font-body text-lg text-on-surface-variant leading-relaxed">
+                    Nosso maior compromisso é proporcionar uma experiência refinada, através de um atendimento de alto padrão. Para o homem que entende que a sua imagem é o seu cartão de visitas e exige a melhor excelência em Campina Grande.
+                </p>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-32 bg-surface-container-low" id="servicos">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div>
+<span class="text-on-tertiary uppercase tracking-[0.2em] font-bold text-xs">Menu de Serviços</span>
+<h2 class="font-headline text-5xl text-white mt-4">Cuidado e Técnica</h2>
+</div>
+<div class="h-[2px] flex-grow mx-12 bg-outline-variant/10 hidden md:block mb-4"></div>
+<p class="font-body text-on-tertiary max-w-xs text-right italic">A precisão que você merece, o estilo que você carrega.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-highest p-8 group hover:bg-surface-container transition-colors duration-500 flex flex-col items-center text-center justify-between min-h-[320px] rounded-[2rem] shadow-xl border border-outline-variant/5">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-4xl mb-8">content_cut</span>
+<h3 class="font-headline text-2xl text-white mb-4">Corte Moderno</h3>
+<p class="text-on-tertiary text-sm leading-relaxed mb-8">Técnicas de degradê, fade e tesoura para um visual contemporâneo e personalizado.</p>
+</div>
+<div class="flex items-center justify-center border-t border-outline-variant/20 pt-8">
+<span class="font-headline text-2xl text-white">R$ 45,00</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container p-8 group hover:bg-surface-container-highest transition-colors duration-500 flex flex-col items-center text-center justify-between min-h-[320px] rounded-[2rem] shadow-xl border border-outline-variant/5 relative scale-100 md:scale-105 z-10">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-secondary text-4xl mb-8">workspace_premium</span>
+<h3 class="font-headline text-2xl text-white mb-4">Design de Barba</h3>
+<p class="text-on-tertiary text-sm leading-relaxed mb-8">Alinhamento preciso com toalha quente e produtos premium para hidratação e pele.</p>
+</div>
+<div class="flex items-center justify-center border-t border-outline-variant/20 pt-8">
+<span class="font-headline text-2xl text-white">R$ 35,00</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-highest p-8 group hover:bg-surface-container transition-colors duration-500 flex flex-col items-center text-center justify-between min-h-[320px] rounded-[2rem] shadow-xl border border-outline-variant/5">
+<div class="flex flex-col items-center">
+<span class="material-symbols-outlined text-primary text-4xl mb-8">science</span>
+<h3 class="font-headline text-2xl text-white mb-4">Bio Redutora</h3>
+<p class="text-on-tertiary text-sm leading-relaxed mb-8">Tratamento capilar avançado para redução de volume e alinhamento dos fios.</p>
+</div>
+<div class="flex items-center justify-center border-t border-outline-variant/20 pt-8">
+<span class="font-headline text-2xl text-white">A partir de R$ 70,00</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Team Section -->
+<section class="py-32 bg-surface" id="equipe">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-24">
+<span class="text-on-tertiary uppercase tracking-[0.2em] font-bold text-xs">Especialistas</span>
+<h2 class="font-headline text-6xl text-white mt-4">Nossa Equipe</h2>
+</div>
+<div class="overflow-hidden">
+<div class="flex md:grid md:grid-cols-5 gap-4 mobile-slide-container w-[500%] md:w-auto">
+<div class="w-full md:w-auto group relative overflow-hidden aspect-[3/4] rounded-lg shadow-xl">
+<img alt="Thiago" class="team-member-1 filter grayscale w-full h-full object-cover transition-all duration-500" src="./Thiago.jpeg"/>
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
+<p class="text-white font-headline text-xl text-center">Thiago</p>
+</div>
+</div>
+<div class="w-full md:w-auto group relative overflow-hidden aspect-[3/4] rounded-lg shadow-xl mt-8 md:mt-12">
+<img alt="Max" class="team-member-2 filter grayscale w-full h-full object-cover transition-all duration-500" src="./Max.jpeg"/>
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
+<p class="text-white font-headline text-xl text-center">Max</p>
+</div>
+</div>
+<div class="w-full md:w-auto group relative overflow-hidden aspect-[3/4] rounded-lg shadow-xl">
+<img alt="Moisés" class="team-member-3 filter grayscale w-full h-full object-cover transition-all duration-500" src="./Moisés.jpeg"/>
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
+<p class="text-white font-headline text-xl text-center">Moisés</p>
+</div>
+</div>
+<div class="w-full md:w-auto group relative overflow-hidden aspect-[3/4] rounded-lg shadow-xl mt-8 md:mt-12">
+<img alt="Júnior" class="team-member-4 filter grayscale w-full h-full object-cover transition-all duration-500" src="./Júnior.jpeg"/>
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
+<p class="text-white font-headline text-xl text-center">Júnior</p>
+</div>
+</div>
+<div class="w-full md:w-auto group relative overflow-hidden aspect-[3/4] rounded-lg shadow-xl">
+<img alt="André" class="team-member-5 filter grayscale w-full h-full object-cover transition-all duration-500" src="./André.jpeg"/>
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
+<p class="text-white font-headline text-xl text-center">André</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+    <!-- ========== SECTION: VÍDEO ========== -->
+    <section id="video-section" class="py-24 px-6 md:px-12 relative overflow-hidden flex flex-col items-center border-t border-outline-variant/10 shadow-[inset_0_20px_50px_rgba(0,0,0,0.5)]" style="background: linear-gradient(135deg, #0a0a0a 0%, #111 40%, #1a0000 100%);">
+        <div class="relative z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
+            <div class="lg:w-1/2 flex flex-col justify-center text-center lg:text-left">
+                <span class="video-content text-[#930000] font-label font-bold tracking-[0.2em] text-xs uppercase flex items-center justify-center lg:justify-start gap-2 mb-4">
+                    <span class="material-symbols-outlined text-sm">play_circle</span>
+                    Faça da Yank a sua barbearia
+                </span>
+                <h2 class="video-content font-headline text-3xl md:text-5xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                    Cortes precisos, barbas alinhadas e <span class="italic text-[#930000]">cabelos estilosos.</span>
+                </h2>
+                <div class="video-content flex justify-center lg:justify-start">
+                    <a href="https://wa.me/558398088795?text=Olá%20gostaria%20de%20marcar%20um%20horário%20na%20barbearia,%20vim%20pelo%20site" target="_blank"
+                        class="inline-flex items-center gap-3 px-8 py-3 bg-transparent text-sm font-label tracking-widest font-bold text-white border border-white/20 hover:bg-[#930000] hover:border-[#930000] transition-all duration-300 active:scale-95 shadow-xl">
+                        AGENDAR HORÁRIO
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:w-1/2 flex justify-center w-full">
+                <!-- iPhone Mockup Frame -->
+                <div class="relative w-full max-w-[320px] aspect-[9/19] group video-phone">
+                    <!-- Outer Metallic Frame -->
+                    <div class="absolute inset-0 bg-[#1c1c1c] rounded-[3rem] shadow-[0_40px_100px_rgba(0,0,0,0.9)] ring-[6px] ring-white/5 z-0">
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="absolute -left-1 top-24 w-1 h-8 bg-[#2a2a2a] rounded-l-md z-10"></div>
+                    <div class="absolute -left-1 top-36 w-1 h-12 bg-[#2a2a2a] rounded-l-md z-10"></div>
+                    <div class="absolute -right-1 top-40 w-1 h-16 bg-[#2a2a2a] rounded-r-md z-10"></div>
+
+                    <!-- Screen Area -->
+                    <div class="absolute inset-[5px] bg-black rounded-[2.8rem] overflow-hidden border-[3px] border-black z-20 flex items-center justify-center shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]">
+                        <video id="yankVideo" class="w-full h-full object-cover" autoplay loop playsinline muted>
+                            <source src="./video_barbearia.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+
+                        <!-- Dynamic Island (Notch) -->
+                        <div class="absolute top-3 inset-x-0 flex justify-center pointer-events-none">
+                            <div class="w-24 h-6 bg-black rounded-full flex items-center justify-center gap-2 px-3">
+                                <div class="w-1.5 h-1.5 rounded-full bg-[#1a1c1e]"></div>
+                                <div class="w-8 h-1 bg-[#1a1c1e] rounded-full"></div>
+                            </div>
+                        </div>
+
+                        <!-- Premium UI Controls -->
+                        <div id="video-controls" class="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 cursor-pointer" onclick="toggleYankMute(event)">
+                            <div class="flex items-center gap-4 group-hover:scale-105 transition-transform duration-300">
+                                <button id="yankMuteBtn" class="w-12 h-12 rounded-full bg-[#930000]/90 backdrop-blur-xl flex items-center justify-center text-white shadow-2xl shrink-0 border border-white/20">
+                                    <span class="material-symbols-outlined text-xl">volume_off</span>
+                                </button>
+                                <div>
+                                    <p class="text-white text-[11px] font-bold uppercase tracking-[0.2em] font-label drop-shadow-lg leading-tight">Yank Barbearia</p>
+                                    <p id="yankSoundText" class="text-white/80 text-[10px] font-body mt-1">Toque para ligar o som</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Location Section -->
+<section class="py-32 bg-surface-container-lowest" id="localizacao">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+<div class="bg-surface-container-high p-16 flex flex-col justify-center">
+<span class="text-primary uppercase tracking-[0.2em] font-bold text-xs mb-6">Visite-nos</span>
+<h2 class="font-headline text-4xl text-white mb-8">No coração de Campina Grande.</h2>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-on-tertiary">location_on</span>
+<div>
+<p class="text-white font-bold">R. Maj. Belmiro, 287</p>
+<p class="text-on-tertiary">São José, Campina Grande - PB</p>
+<p class="text-primary text-sm mt-1 font-bold">Em frente ao parque do povo</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-on-tertiary">schedule</span>
+<div>
+<p class="text-white font-bold">Horário de Funcionamento</p>
+<p class="text-on-tertiary">Seg - Sáb: 09:00 às 19:00</p>
+</div>
+</div>
+</div>
+<a class="mt-12 inline-flex items-center gap-2 text-secondary font-bold tracking-widest uppercase text-xs group" href="https://maps.app.goo.gl/WVm8eoSnMfFK1MGn7" target="_blank">
+                        Abrir no Google Maps
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">open_in_new</span>
+</a>
+</div>
+<div class="h-[400px] md:h-auto bg-outline-variant/10">
+<img alt="Visão dentro da barbearia" class="w-full h-full object-cover opacity-100 transition-all duration-700" src="./Foto visão dentro da barbearia.webp"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer / Contact Form -->
+<footer class="bg-[#000000] py-20">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col items-center text-center">
+<img src="./Logo YANK - Editado.png" alt="YANK Logo" class="h-20 md:h-32 w-auto object-contain mb-8 filter drop-shadow-[0_0_12px_rgba(255,255,255,0.15)]" />
+<p class="text-[#605f5e] font-body text-base mb-12 max-w-2xl leading-relaxed">
+                    Elevando o padrão da barbearia em Campina Grande. Onde cada detalhe importa e cada cliente é único. Siga-nos em nossas redes sociais.
+                </p>
+<div class="flex space-x-6">
+<a class="text-[#605f5e] hover:text-[#930000] transition-all" href="#"><span class="material-symbols-outlined">brand_awareness</span></a>
+<a class="text-[#605f5e] hover:text-[#0102cc] transition-all" href="#"><span class="material-symbols-outlined">chat</span></a>
+<a class="text-[#605f5e] hover:text-white transition-all" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 mt-32 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-8">
+<p class="font-['Manrope'] text-sm text-[#605f5e]">2026 © Yank Barbearia. Todos os direitos reservados. Desenvolvido por <a href="#" class="text-white hover:text-primary transition-colors">Caio Henrique</a></p>
+<div class="flex space-x-8">
+<a class="text-[#605f5e] text-xs uppercase tracking-widest hover:text-[#930000] transition-all" href="#">Sugestões</a>
+<a class="text-[#605f5e] text-xs uppercase tracking-widest hover:text-[#930000] transition-all" href="#">Privacidade</a>
+<a class="text-[#605f5e] text-xs uppercase tracking-widest hover:text-[#930000] transition-all" href="#">Termos</a>
+</div>
+</div>
+</footer>
+<!-- Video Script -->
+<script>
+    const yankVideo = document.getElementById('yankVideo');
+    const yankMuteBtn = document.getElementById('yankMuteBtn');
+    const yankSoundText = document.getElementById('yankSoundText');
+
+    function toggleYankMute(e) {
+        if(e) e.stopPropagation();
+        if(!yankVideo) return;
+        yankVideo.muted = !yankVideo.muted;
+        if (yankVideo.muted) {
+            yankMuteBtn.innerHTML = '<span class="material-symbols-outlined text-xl">volume_off</span>';
+            if(yankSoundText) yankSoundText.textContent = "Toque para ligar o som";
+        } else {
+            yankMuteBtn.innerHTML = '<span class="material-symbols-outlined text-xl">volume_up</span>';
+            if(yankSoundText) yankSoundText.textContent = "Toque para desligar o som";
+        }
+    }
+
+    window.addEventListener('load', () => {
+        if(yankVideo) {
+            yankVideo.play().catch(error => {
+                console.log("Autoplay flex blocked", error);
+            });
+        }
+    });
+
+    // Handle scroll interaction to ensure playback
+    let hasPlayed = false;
+    window.addEventListener('scroll', () => {
+        if(!hasPlayed && yankVideo) {
+            const rect = yankVideo.getBoundingClientRect();
+            if(rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)) {
+                yankVideo.play();
+                hasPlayed = true;
+            }
+        }
+    });
+</script>
+</body></html>
