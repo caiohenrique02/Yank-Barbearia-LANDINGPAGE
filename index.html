@@ -7,7 +7,10 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Manrope:wght@300;400;500;600;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -121,6 +124,18 @@
                 transform: none !important;
             }
         }
+        
+        /* Custom Overrides for Flatpickr in Yank Theme */
+        .flatpickr-calendar {
+            box-shadow: none !important;
+            border: none !important;
+            padding: 0 !important;
+            background: transparent !important;
+        }
+        .flatpickr-day.selected {
+            background: #930000 !important;
+            border-color: #930000 !important;
+        }
     </style>
 </head>
 <body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-white">
@@ -141,8 +156,8 @@
 <!-- Hero Section -->
 <header class="relative min-h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden">
 <div class="absolute inset-0 z-0 bg-black">
-<div class="absolute inset-0 bg-gradient-to-b from-black/70 via-surface/90 to-surface z-10"></div>
-<img alt="Fachada Yank Barbearia" class="w-full h-full object-cover opacity-80" src="./Foto fachada da barbearia.webp"/>
+<div class="absolute inset-0 bg-gradient-to-b from-black/30 via-surface/60 to-surface z-10"></div>
+<img alt="Fachada Yank Barbearia" class="w-full h-full object-cover opacity-90" src="./Foto fachada da barbearia.webp"/>
 </div>
 <div class="relative z-20 max-w-4xl mx-auto">
 <!-- Logo as Razor Concept -->
@@ -151,7 +166,7 @@
 <div class="h-16 w-[2px] bg-gradient-to-b from-primary to-secondary-container"></div>
 </div>
 <p class="label-md uppercase tracking-[0.2em] text-on-tertiary mb-4 font-bold">Campina Grande, PB</p>
-<h1 class="font-headline text-5xl md:text-8xl font-black text-white leading-tight mb-6 tracking-tighter text-shadow-deep">
+<h1 class="font-headline text-4xl md:text-6xl font-black text-white leading-tight mb-6 tracking-tighter text-shadow-deep">
                 Excelência e Estilo em Campina Grande
             </h1>
 <p class="font-body text-xl md:text-2xl text-on-surface-variant mb-12 max-w-2xl mx-auto font-light">
@@ -294,10 +309,10 @@
                     Cortes precisos, barbas alinhadas e <span class="italic text-[#930000]">cabelos estilosos.</span>
                 </h2>
                 <div class="video-content flex justify-center lg:justify-start">
-                    <a href="https://wa.me/558398088795?text=Olá%20gostaria%20de%20marcar%20um%20horário%20na%20barbearia,%20vim%20pelo%20site" target="_blank"
+                    <button onclick="openBookingModal()"
                         class="inline-flex items-center gap-3 px-8 py-3 bg-transparent text-sm font-label tracking-widest font-bold text-white border border-white/20 hover:bg-[#930000] hover:border-[#930000] transition-all duration-300 active:scale-95 shadow-xl">
                         AGENDAR HORÁRIO
-                    </a>
+                    </button>
                 </div>
             </div>
 
@@ -404,6 +419,49 @@
 </div>
 </div>
 </footer>
+
+<!-- Booking Modal -->
+<div id="bookingModal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-opacity duration-500 bg-black/80 backdrop-blur-sm" onclick="handleBookingModalClick(event)">
+    <div id="bookingModalContent" class="relative w-full max-w-4xl bg-[#131313] rounded-3xl overflow-hidden shadow-2xl transform scale-95 translate-y-4 transition-all duration-500 flex flex-col md:flex-row border border-[#484848]/20">
+        <button class="absolute top-4 right-4 z-20 w-10 h-10 bg-black/40 hover:bg-[#930000] text-white rounded-full flex items-center justify-center backdrop-blur-md transition-colors" onclick="closeBookingModal()">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        
+        <div class="w-full md:w-1/2 p-8 md:p-10 flex flex-col items-center bg-[#0e0e0e] border-r border-[#484848]/10 justify-center">
+            <h3 class="text-2xl font-headline text-white mb-6">Escolha o dia</h3>
+            <div class="bg-[#1a1919] rounded-xl p-4 w-full flex flex-col items-center border border-[#484848]/20">
+                <input type="text" id="datePicker" class="hidden" placeholder="Selecione a data">
+            </div>
+        </div>
+        
+        <div class="w-full md:w-1/2 p-8 md:p-10 flex flex-col justify-center">
+            <div class="space-y-6">
+                <div>
+                    <label id="dateLabel" class="block text-sm font-label font-bold tracking-widest text-[#acabaa] uppercase mb-4 text-center">Selecione uma data</label>
+                    <div class="grid grid-cols-4 gap-2 opacity-50 pointer-events-none transition-opacity duration-300" id="timeSlots">
+                        <button type="button" onclick="selectTime(this, '09:00')" class="time-btn py-2 px-1 border border-[#484848] rounded text-sm text-[#acabaa] transition-colors cursor-pointer hover:border-[#930000] hover:text-white bg-transparent">09:00</button>
+                        <button type="button" onclick="selectTime(this, '10:00')" class="time-btn py-2 px-1 border border-[#484848] rounded text-sm text-[#acabaa] transition-colors cursor-pointer hover:border-[#930000] hover:text-white bg-transparent">10:00</button>
+                        <button type="button" onclick="selectTime(this, '11:00')" class="time-btn py-2 px-1 border border-[#484848] rounded text-sm text-[#acabaa] transition-colors cursor-pointer hover:border-[#930000] hover:text-white bg-transparent">11:00</button>
+                        <button type="button" onclick="selectTime(this, '14:00')" class="time-btn py-2 px-1 border border-[#484848] rounded text-sm text-[#acabaa] transition-colors cursor-pointer hover:border-[#930000] hover:text-white bg-transparent">14:00</button>
+                        <button type="button" onclick="selectTime(this, '15:00')" class="time-btn py-2 px-1 border border-[#484848] rounded text-sm text-[#acabaa] transition-colors cursor-pointer hover:border-[#930000] hover:text-white bg-transparent">15:00</button>
+                        <button type="button" onclick="selectTime(this, '16:00')" class="time-btn py-2 px-1 border border-[#484848] rounded text-sm text-[#acabaa] transition-colors cursor-pointer hover:border-[#930000] hover:text-white bg-transparent">16:00</button>
+                        <button type="button" onclick="selectTime(this, '17:00')" class="time-btn py-2 px-1 border border-[#484848] rounded text-sm text-[#acabaa] transition-colors cursor-pointer hover:border-[#930000] hover:text-white bg-transparent">17:00</button>
+                        <button type="button" onclick="selectTime(this, '18:00')" class="time-btn py-2 px-1 border border-[#484848] rounded text-sm text-[#acabaa] transition-colors cursor-pointer hover:border-[#930000] hover:text-white bg-transparent">18:00</button>
+                    </div>
+                </div>
+                <form class="space-y-4 pt-6 border-t border-[#484848]/20">
+                    <div>
+                        <input id="bookingName" class="w-full bg-transparent border-b border-[#484848] py-2 focus:outline-none focus:border-[#930000] text-white placeholder-[#acabaa]" placeholder="Seu Nome Completo" type="text" />
+                    </div>
+                    <button type="button" onclick="sendBooking()" class="w-full bg-[#930000] hover:bg-[#c20000] text-white font-label font-bold tracking-widest uppercase text-xs py-4 rounded shadow-xl transition-all active:scale-95 mt-4">
+                        Confirmar via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Video Script -->
 <script>
     const yankVideo = document.getElementById('yankVideo');
@@ -442,5 +500,72 @@
             }
         }
     });
+
+    // Calendar UI logic
+    let selectedFullDate = '';
+    let selectedTime = '';
+
+    flatpickr("#datePicker", {
+        inline: true,
+        locale: "pt",
+        minDate: "today",
+        onChange: function (selectedDates, dateStr) {
+            selectedFullDate = dateStr;
+            const label = document.getElementById('dateLabel');
+            label.innerText = `Horários em ${dateStr}`;
+            label.classList.replace('text-[#acabaa]', 'text-white');
+            
+            const timeSlots = document.getElementById('timeSlots');
+            timeSlots.classList.remove('opacity-50', 'pointer-events-none');
+            
+            // Reset time selection
+            selectedTime = '';
+            document.querySelectorAll('.time-btn').forEach(b => {
+                b.classList.remove('border-[#930000]', 'bg-[#930000]/20', 'text-white');
+                b.classList.add('border-[#484848]', 'text-[#acabaa]');
+            });
+        }
+    });
+
+    function selectTime(btn, time) {
+        if (!selectedFullDate) return;
+        selectedTime = time;
+        document.querySelectorAll('.time-btn').forEach(b => {
+            b.classList.remove('border-[#930000]', 'bg-[#930000]/20', 'text-white');
+            b.classList.add('border-[#484848]', 'text-[#acabaa]');
+        });
+        btn.classList.add('border-[#930000]', 'bg-[#930000]/20', 'text-white');
+        btn.classList.remove('border-[#484848]', 'text-[#acabaa]');
+    }
+
+    function sendBooking() {
+        const name = document.getElementById('bookingName').value;
+        if (!name || !selectedTime || !selectedFullDate) {
+            alert('Por favor, preencha seu nome e escolha data e horário.');
+            return;
+        }
+        const msg = `Olá! Gostaria de agendar um horário na Yank.%0A*Nome:* ${name}%0A*Data:* ${selectedFullDate}%0A*Horário:* ${selectedTime}`;
+        window.open(`https://wa.me/558398088795?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    function openBookingModal() {
+        const modal = document.getElementById('bookingModal');
+        const content = document.getElementById('bookingModalContent');
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        content.classList.remove('scale-95', 'translate-y-4');
+    }
+
+    function closeBookingModal() {
+        const modal = document.getElementById('bookingModal');
+        const content = document.getElementById('bookingModalContent');
+        content.classList.add('scale-95', 'translate-y-4');
+        modal.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    function handleBookingModalClick(e) {
+        if (e.target.id === 'bookingModal') {
+            closeBookingModal();
+        }
+    }
 </script>
 </body></html>
