@@ -509,6 +509,7 @@
         inline: true,
         locale: "pt",
         minDate: "today",
+        dateFormat: "d/m/Y",
         onChange: function (selectedDates, dateStr) {
             selectedFullDate = dateStr;
             const label = document.getElementById('dateLabel');
@@ -544,8 +545,9 @@
             alert('Por favor, preencha seu nome e escolha data e horário.');
             return;
         }
-        const msg = `Olá! Gostaria de agendar um horário na Yank.%0A*Nome:* ${name}%0A*Data:* ${selectedFullDate}%0A*Horário:* ${selectedTime}`;
-        window.open(`https://wa.me/558398088795?text=${encodeURIComponent(msg)}`, '_blank');
+        const msg = `Olá! Gostaria de agendar um horário na Yank.\n\n*Nome:* ${name}\n*Data:* ${selectedFullDate}\n*Horário:* ${selectedTime}`;
+        const encodedMsg = encodeURIComponent(msg);
+        window.open(`https://wa.me/558398088795?text=${encodedMsg}`, '_blank');
     }
 
     function openBookingModal() {
