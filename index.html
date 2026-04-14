@@ -102,21 +102,19 @@
             100% { filter: grayscale(1); transform: scale(1); }
         }
         @keyframes mobileSlide {
-            0%, 15% { transform: translateX(0); }
-            20%, 35% { transform: translateX(-20%); }
-            40%, 55% { transform: translateX(-40%); }
-            60%, 75% { transform: translateX(-60%); }
-            80%, 95% { transform: translateX(-80%); }
+            0%, 20% { transform: translateX(0); }
+            25%, 45% { transform: translateX(-25%); }
+            50%, 70% { transform: translateX(-50%); }
+            75%, 95% { transform: translateX(-75%); }
             100% { transform: translateX(0); }
         }
-        .team-member-1 { animation: sequenceColor 7.5s infinite; animation-delay: 0s; }
-        .team-member-2 { animation: sequenceColor 7.5s infinite; animation-delay: 1.5s; }
-        .team-member-3 { animation: sequenceColor 7.5s infinite; animation-delay: 3s; }
-        .team-member-4 { animation: sequenceColor 7.5s infinite; animation-delay: 4.5s; }
-        .team-member-5 { animation: sequenceColor 7.5s infinite; animation-delay: 6s; }
+        .team-member-1 { animation: sequenceColor 6s infinite; animation-delay: 0s; }
+        .team-member-2 { animation: sequenceColor 6s infinite; animation-delay: 1.5s; }
+        .team-member-3 { animation: sequenceColor 6s infinite; animation-delay: 3s; }
+        .team-member-4 { animation: sequenceColor 6s infinite; animation-delay: 4.5s; }
         
         .mobile-slide-container {
-            animation: mobileSlide 7.5s infinite;
+            animation: mobileSlide 6s infinite;
         }
         @media (min-width: 768px) {
             .mobile-slide-container {
@@ -209,37 +207,37 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 <!-- Card 1 -->
-<div class="bg-surface-container-highest p-8 group hover:bg-surface-container transition-colors duration-500 flex flex-col items-center text-center justify-between min-h-[320px] rounded-[2rem] shadow-xl border border-outline-variant/5">
-<div class="flex flex-col items-center">
-<span class="material-symbols-outlined text-primary text-4xl mb-8">content_cut</span>
-<h3 class="font-headline text-2xl text-white mb-4">Corte Moderno</h3>
-<p class="text-on-tertiary text-sm leading-relaxed mb-8">Técnicas de degradê, fade e tesoura para um visual contemporâneo e personalizado.</p>
-</div>
-<div class="flex items-center justify-center border-t border-outline-variant/20 pt-8">
-<span class="font-headline text-2xl text-white">R$ 45,00</span>
-</div>
+<div class="group relative overflow-hidden rounded-[2rem] md:h-[450px] aspect-[4/5] md:aspect-auto shadow-2xl cursor-pointer ring-1 ring-white/10 hover:ring-primary/50 transition-all duration-500">
+    <img src="./cabelo.jpeg" alt="Corte Moderno" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent flex flex-col justify-end p-8">
+        <h3 class="font-headline text-3xl text-white mb-2 group-hover:text-primary transition-colors">Corte Moderno</h3>
+        <p class="text-on-tertiary text-sm leading-relaxed mb-6 line-clamp-3">Técnicas de degradê, fade e tesoura para um visual contemporâneo e personalizado.</p>
+        <div class="flex items-center justify-between pt-4 border-t border-white/20">
+            <span class="font-headline text-xl text-white font-bold">R$ 45,00</span>
+        </div>
+    </div>
 </div>
 <!-- Card 2 -->
-<div class="bg-surface-container p-8 group hover:bg-surface-container-highest transition-colors duration-500 flex flex-col items-center text-center justify-between min-h-[320px] rounded-[2rem] shadow-xl border border-outline-variant/5 relative scale-100 md:scale-105 z-10">
-<div class="flex flex-col items-center">
-<span class="material-symbols-outlined text-secondary text-4xl mb-8">workspace_premium</span>
-<h3 class="font-headline text-2xl text-white mb-4">Design de Barba</h3>
-<p class="text-on-tertiary text-sm leading-relaxed mb-8">Alinhamento preciso com toalha quente e produtos premium para hidratação e pele.</p>
-</div>
-<div class="flex items-center justify-center border-t border-outline-variant/20 pt-8">
-<span class="font-headline text-2xl text-white">R$ 35,00</span>
-</div>
+<div class="group relative overflow-hidden rounded-[2rem] md:h-[450px] aspect-[4/5] md:aspect-auto shadow-2xl cursor-pointer ring-1 ring-white/10 hover:ring-secondary/50 transition-all duration-500 z-10 scale-100 md:scale-105">
+    <img src="./Barba.jpeg" alt="Design de Barba" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent flex flex-col justify-end p-8">
+        <h3 class="font-headline text-3xl text-white mb-2 group-hover:text-secondary transition-colors">Design de Barba</h3>
+        <p class="text-on-tertiary text-sm leading-relaxed mb-6 line-clamp-3">Alinhamento preciso com toalha quente e produtos premium para hidratação e pele.</p>
+        <div class="flex items-center justify-between pt-4 border-t border-white/20">
+            <span class="font-headline text-xl text-white font-bold">R$ 35,00</span>
+        </div>
+    </div>
 </div>
 <!-- Card 3 -->
-<div class="bg-surface-container-highest p-8 group hover:bg-surface-container transition-colors duration-500 flex flex-col items-center text-center justify-between min-h-[320px] rounded-[2rem] shadow-xl border border-outline-variant/5">
-<div class="flex flex-col items-center">
-<span class="material-symbols-outlined text-primary text-4xl mb-8">science</span>
-<h3 class="font-headline text-2xl text-white mb-4">Bio Redutora</h3>
-<p class="text-on-tertiary text-sm leading-relaxed mb-8">Tratamento capilar avançado para redução de volume e alinhamento dos fios.</p>
-</div>
-<div class="flex items-center justify-center border-t border-outline-variant/20 pt-8">
-<span class="font-headline text-2xl text-white">A partir de R$ 70,00</span>
-</div>
+<div class="group relative overflow-hidden rounded-[2rem] md:h-[450px] aspect-[4/5] md:aspect-auto shadow-2xl cursor-pointer ring-1 ring-white/10 hover:ring-primary/50 transition-all duration-500">
+    <img src="./Bio redutora.jpg" alt="Bio Redutora" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent flex flex-col justify-end p-8">
+        <h3 class="font-headline text-3xl text-white mb-2 group-hover:text-primary transition-colors">Bio Redutora</h3>
+        <p class="text-on-tertiary text-sm leading-relaxed mb-6 line-clamp-3">Tratamento capilar avançado para redução de volume e alinhamento dos fios.</p>
+        <div class="flex items-center justify-between pt-4 border-t border-white/20">
+            <span class="font-headline text-xl text-white font-bold">A partir de R$ 70,00</span>
+        </div>
+    </div>
 </div>
 </div>
 </div>
@@ -251,36 +249,41 @@
 <span class="text-on-tertiary uppercase tracking-[0.2em] font-bold text-xs">Especialistas</span>
 <h2 class="font-headline text-6xl text-white mt-4">Nossa Equipe</h2>
 </div>
-<div class="overflow-hidden">
-<div class="flex md:grid md:grid-cols-5 gap-4 mobile-slide-container w-[500%] md:w-auto">
-<div class="w-full md:w-auto group relative overflow-hidden aspect-[3/4] rounded-lg shadow-xl">
+<div class="overflow-hidden relative">
+<div class="flex md:grid md:grid-cols-4 gap-0 md:gap-4 mobile-slide-container w-[400%] md:w-auto">
+<div class="w-full md:w-auto px-1 max-md:pb-12 md:px-0">
+<div class="group relative overflow-hidden aspect-[3/4] rounded-lg shadow-xl h-full">
 <img alt="Thiago" class="team-member-1 filter grayscale w-full h-full object-cover transition-all duration-500" src="./Thiago.jpeg"/>
 <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
 <p class="text-white font-headline text-xl text-center">Thiago</p>
 </div>
 </div>
-<div class="w-full md:w-auto group relative overflow-hidden aspect-[3/4] rounded-lg shadow-xl mt-8 md:mt-12">
+</div>
+
+<div class="w-full md:w-auto px-1 max-md:pb-12 md:px-0">
+<div class="group relative overflow-hidden aspect-[3/4] rounded-lg shadow-xl mt-0 md:mt-12 h-full">
 <img alt="Max" class="team-member-2 filter grayscale w-full h-full object-cover transition-all duration-500" src="./Max.jpeg"/>
 <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
 <p class="text-white font-headline text-xl text-center">Max</p>
 </div>
 </div>
-<div class="w-full md:w-auto group relative overflow-hidden aspect-[3/4] rounded-lg shadow-xl">
+</div>
+
+<div class="w-full md:w-auto px-1 max-md:pb-12 md:px-0">
+<div class="group relative overflow-hidden aspect-[3/4] rounded-lg shadow-xl h-full">
 <img alt="Moisés" class="team-member-3 filter grayscale w-full h-full object-cover transition-all duration-500" src="./Moisés.jpeg"/>
 <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
 <p class="text-white font-headline text-xl text-center">Moisés</p>
 </div>
 </div>
-<div class="w-full md:w-auto group relative overflow-hidden aspect-[3/4] rounded-lg shadow-xl mt-8 md:mt-12">
+</div>
+
+<div class="w-full md:w-auto px-1 max-md:pb-12 md:px-0">
+<div class="group relative overflow-hidden aspect-[3/4] rounded-lg shadow-xl mt-0 md:mt-12 h-full">
 <img alt="Júnior" class="team-member-4 filter grayscale w-full h-full object-cover transition-all duration-500" src="./Júnior.jpeg"/>
 <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
 <p class="text-white font-headline text-xl text-center">Júnior</p>
 </div>
-</div>
-<div class="w-full md:w-auto group relative overflow-hidden aspect-[3/4] rounded-lg shadow-xl">
-<img alt="André" class="team-member-5 filter grayscale w-full h-full object-cover transition-all duration-500" src="./André.jpeg"/>
-<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
-<p class="text-white font-headline text-xl text-center">André</p>
 </div>
 </div>
 </div>
@@ -298,11 +301,17 @@
                 <h2 class="video-content font-headline text-3xl md:text-5xl lg:text-5xl font-bold text-white mb-6 leading-tight">
                     Cortes precisos, barbas alinhadas e <span class="italic text-[#930000]">cabelos estilosos.</span>
                 </h2>
-                <div class="video-content flex justify-center lg:justify-start">
+                <div class="video-content flex flex-col items-center lg:items-start space-y-4">
                     <button onclick="openBookingModal()"
                         class="inline-flex items-center gap-3 px-8 py-3 bg-transparent text-sm font-label tracking-widest font-bold text-white border border-white/20 hover:bg-[#930000] hover:border-[#930000] transition-all duration-300 active:scale-95 shadow-xl">
                         AGENDAR HORÁRIO
                     </button>
+                    <a href="https://www.instagram.com/yankbarbearia/" target="_blank" class="inline-flex items-center gap-2 px-2 py-1 text-[#acabaa] hover:text-white transition-colors duration-300 group">
+                        <svg class="w-5 h-5 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.999 7.377a4.623 4.623 0 1 0 0 9.248 4.623 4.623 0 0 0 0-9.248zm0 7.627a3.004 3.004 0 1 1 0-6.008 3.004 3.004 0 0 1 0 6.008z"></path><circle cx="16.806" cy="7.207" r="1.078"></circle><path d="M20.533 6.111A4.605 4.605 0 0 0 17.9 3.479a6.606 6.606 0 0 0-2.186-.42c-.963-.042-1.268-.054-3.71-.054s-2.755 0-3.71.054a6.554 6.554 0 0 0-2.184.42 4.6 4.6 0 0 0-2.633 2.632 6.585 6.585 0 0 0-.419 2.186c-.043.962-.056 1.267-.056 3.71 0 2.442 0 2.753.056 3.71.015.748.156 1.486.419 2.187a4.61 4.61 0 0 0 2.634 2.632 6.584 6.584 0 0 0 2.185.45c.963.042 1.268.055 3.71.055s2.755 0 3.71-.055a6.615 6.615 0 0 0 2.186-.419 4.613 4.613 0 0 0 2.633-2.633c.263-.7.404-1.438.419-2.186.043-.962.056-1.267.056-3.71s0-2.753-.056-3.71a6.581 6.581 0 0 0-.421-2.217zm-1.218 9.532a5.043 5.043 0 0 1-.311 1.688 2.987 2.987 0 0 1-1.712 1.711 4.985 4.985 0 0 1-1.67.311c-.95.044-1.218.055-3.654.055-2.438 0-2.687 0-3.655-.055a4.96 4.96 0 0 1-1.669-.311 2.985 2.985 0 0 1-1.719-1.711 5.08 5.08 0 0 1-.311-1.669c-.043-.95-.053-1.218-.053-3.654 0-2.437 0-2.686.053-3.655a5.038 5.038 0 0 1 .311-1.687c.305-.789.93-1.41 1.719-1.712a5.01 5.01 0 0 1 1.669-.311c.952-.043 1.218-.055 3.655-.055s2.687 0 3.654.055a4.96 4.96 0 0 1 1.67.311 2.991 2.991 0 0 1 1.712 1.712 5.08 5.08 0 0 1 .311 1.669c.043.951.054 1.218.054 3.655 0 2.436 0 2.698-.043 3.654h-.011z"></path></svg>
+                        <span class="font-label text-xs tracking-[0.1em] border-b border-transparent group-hover:border-white decoration-1 transition-all mt-0.5">
+                            @yankbarbearia
+                        </span>
+                    </a>
                 </div>
             </div>
 
@@ -559,5 +568,42 @@
             closeBookingModal();
         }
     }
+    // Discount Pop-up Logic
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            const popup = document.getElementById('discountPopup');
+            if (popup) {
+                popup.classList.remove('translate-y-[150%]', 'opacity-0');
+            }
+        }, 3000); // 3 seconds delay
+    });
+
+    function closeDiscountPopup() {
+        const popup = document.getElementById('discountPopup');
+        if (popup) {
+            popup.classList.add('translate-y-[150%]', 'opacity-0');
+        }
+    }
 </script>
+
+<!-- Discount Popup -->
+<div id="discountPopup" class="fixed bottom-6 right-6 z-[90] max-w-sm w-[calc(100%-3rem)] bg-[#131313] border border-[#930000]/30 rounded-2xl p-6 shadow-[0_10px_40px_rgba(0,0,0,0.8)] transform translate-y-[150%] opacity-0 transition-all duration-700 ease-out flex gap-4 items-start ring-1 ring-white/5 backdrop-blur-md">
+    <div class="w-12 h-12 bg-gradient-to-br from-[#930000] to-[#c20000] rounded-full flex items-center justify-center shrink-0 shadow-lg shadow-[#930000]/20">
+        <span class="material-symbols-outlined text-white text-xl">loyalty</span>
+    </div>
+    <div class="flex-1 mt-0.5">
+        <h4 class="font-headline text-lg text-white mb-1">Presente Especial!</h4>
+        <p class="text-sm font-body text-on-surface-variant leading-relaxed">
+            Você ganhou um desconto de <span class="text-white font-bold">10%</span> para o seu primeiro corte na <span class="text-primary">Yank Barbearia</span>.
+        </p>
+        <button onclick="openBookingModal(); closeDiscountPopup();" class="mt-4 text-xs font-label uppercase tracking-widest font-bold text-white hover:text-primary transition-colors flex items-center gap-1 group">
+            Resgatar agora
+            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </button>
+    </div>
+    <button onclick="closeDiscountPopup()" class="absolute top-4 right-4 text-[#767575] hover:text-white transition-colors">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+    </button>
+</div>
+
 </body></html>
