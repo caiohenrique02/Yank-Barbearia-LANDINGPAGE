@@ -134,6 +134,50 @@
             background: #930000 !important;
             border-color: #930000 !important;
         }
+        
+        /* Products Carousel */
+        .product-item {
+            position: absolute;
+            top: 50%;
+            transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .prod-active {
+            z-index: 30;
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+            left: 50%;
+            filter: brightness(1) drop-shadow(0 0 25px rgba(147,0,0,0.4));
+        }
+        .prod-prev {
+            z-index: 20;
+            transform: translate(-50%, -50%) scale(0.85);
+            opacity: 0.5;
+            left: 20%;
+            filter: brightness(0.4);
+        }
+        .prod-next {
+            z-index: 20;
+            transform: translate(-50%, -50%) scale(0.85);
+            opacity: 0.5;
+            left: 80%;
+            filter: brightness(0.4);
+        }
+        .prod-hidden-left {
+            z-index: 10;
+            transform: translate(-50%, -50%) scale(0.5);
+            opacity: 0;
+            left: 0%;
+        }
+        .prod-hidden-right {
+            z-index: 10;
+            transform: translate(-50%, -50%) scale(0.5);
+            opacity: 0;
+            left: 100%;
+        }
+        @media (max-width: 768px) {
+            .prod-prev { left: 10%; transform: translate(-50%, -50%) scale(0.75); }
+            .prod-next { left: 90%; transform: translate(-50%, -50%) scale(0.75); }
+        }
     </style>
 </head>
 <body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-white">
@@ -240,7 +284,65 @@
     </div>
 </div>
 </div>
-</div>
+</section>
+<!-- Products Section -->
+<section class="py-32 bg-surface-container-lowest overflow-hidden relative" id="produtos">
+    <div class="absolute w-[500px] h-[500px] bg-primary-container/10 rounded-full blur-[120px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+        <div class="text-center mb-16 md:mb-24">
+            <span class="text-primary uppercase tracking-[0.2em] font-bold text-xs">Exclusivo</span>
+            <h2 class="font-headline text-5xl md:text-6xl text-white mt-4">Nossa Linha</h2>
+            <div class="w-12 h-[2px] bg-primary mx-auto mt-6"></div>
+        </div>
+        
+        <div class="relative w-full h-[450px] md:h-[500px] flex justify-center items-center">
+            <div id="productCarousel" class="relative w-full max-w-5xl h-full">
+                <!-- Items -->
+                <div class="product-item prod-active w-[260px] md:w-[300px] rounded-[2rem] shadow-2xl bg-[#131313] p-5 border border-white/10 group flex flex-col items-center">
+                    <div class="w-full h-[250px] md:h-[280px] rounded-xl overflow-hidden mb-4 relative drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                        <img src="./produto 1.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    </div>
+                    <h3 class="font-headline text-2xl text-white text-center mb-1">Cera Modeladora</h3>
+                </div>
+                <div class="product-item prod-next w-[260px] md:w-[300px] rounded-[2rem] shadow-2xl bg-[#131313] p-5 border border-white/10 group flex flex-col items-center">
+                    <div class="w-full h-[250px] md:h-[280px] rounded-xl overflow-hidden mb-4 relative drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                        <img src="./produto 2.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    </div>
+                    <h3 class="font-headline text-2xl text-white text-center mb-1">Óleo de Barba</h3>
+                </div>
+                <div class="product-item prod-hidden-right w-[260px] md:w-[300px] rounded-[2rem] shadow-2xl bg-[#131313] p-5 border border-white/10 group flex flex-col items-center">
+                    <div class="w-full h-[250px] md:h-[280px] rounded-xl overflow-hidden mb-4 relative drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                        <img src="./produto 3.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    </div>
+                    <h3 class="font-headline text-2xl text-white text-center mb-1">Balm Hidratante</h3>
+                </div>
+                <div class="product-item prod-hidden-right w-[260px] md:w-[300px] rounded-[2rem] shadow-2xl bg-[#131313] p-5 border border-white/10 group flex flex-col items-center">
+                    <div class="w-full h-[250px] md:h-[280px] rounded-xl overflow-hidden mb-4 relative drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                        <img src="./produto 4.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    </div>
+                    <h3 class="font-headline text-2xl text-white text-center mb-1">Shampoo 3 em 1</h3>
+                </div>
+                <div class="product-item prod-hidden-right w-[260px] md:w-[300px] rounded-[2rem] shadow-2xl bg-[#131313] p-5 border border-white/10 group flex flex-col items-center">
+                    <div class="w-full h-[250px] md:h-[280px] rounded-xl overflow-hidden mb-4 relative drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                        <img src="./produto 5.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    </div>
+                    <h3 class="font-headline text-2xl text-white text-center mb-1">Pós-Barba Premium</h3>
+                </div>
+                <div class="product-item prod-prev w-[260px] md:w-[300px] rounded-[2rem] shadow-2xl bg-[#131313] p-5 border border-white/10 group flex flex-col items-center">
+                    <div class="w-full h-[250px] md:h-[280px] rounded-xl overflow-hidden mb-4 relative drop-shadow-[0_4px_10px_rgba(0,0,0,0.5)]">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+                        <img src="./produto 6.jpeg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    </div>
+                    <h3 class="font-headline text-2xl text-white text-center mb-1">Pomada Matte</h3>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 <!-- Team Section -->
 <section class="py-32 bg-surface" id="equipe">
@@ -378,22 +480,24 @@
 <div class="flex items-start gap-4">
 <span class="material-symbols-outlined text-on-tertiary">schedule</span>
 <div>
-<p class="text-white font-bold">Horário de Funcionamento</p>
-<p class="text-on-tertiary">Seg - Sáb: 09:00 às 19:00</p>
-</div>
-</div>
+                        <p class="text-white font-bold">Horário de Funcionamento</p>
+                        <p class="text-on-tertiary">Ter - Sex: 09:00 às 19:00</p>
+                        <p class="text-on-tertiary text-xs opacity-60">Sáb, Dom e Seg: Fechado</p>
+                    </div>
+                </div>
 </div>
 <a class="mt-12 inline-flex items-center gap-2 text-secondary font-bold tracking-widest uppercase text-xs group" href="https://maps.app.goo.gl/WVm8eoSnMfFK1MGn7" target="_blank">
                         Abrir no Google Maps
                         <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">open_in_new</span>
 </a>
 </div>
-<div class="h-[400px] md:h-auto bg-outline-variant/10">
-<img alt="Visão dentro da barbearia" class="w-full h-full object-cover opacity-100 transition-all duration-700" src="./Foto visão dentro da barbearia.webp"/>
-</div>
-</div>
-</div>
-</section>
+                <div class="h-[400px] md:h-auto bg-outline-variant/10 relative overflow-hidden">
+                    <img id="location-slide-1" alt="Visão dentro da barbearia" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100" src="./Foto visão dentro da barbearia.webp"/>
+                    <img id="location-slide-2" alt="Fachada da barbearia" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0" src="./Foto fachada.jpeg"/>
+                </div>
+            </div>
+        </div>
+    </section>
 <!-- Footer / Contact Form -->
 <footer class="bg-[#000000] py-20">
 <div class="max-w-7xl mx-auto px-8">
@@ -505,6 +609,12 @@
         locale: "pt",
         minDate: "today",
         dateFormat: "d/m/Y",
+        disable: [
+            function(date) {
+                // Desabilitar Segunda (1), Sábado (6) e Domingo (0)
+                return (date.getDay() === 0 || date.getDay() === 1 || date.getDay() === 6);
+            }
+        ],
         onChange: function (selectedDates, dateStr) {
             selectedFullDate = dateStr;
             const label = document.getElementById('dateLabel');
@@ -583,6 +693,58 @@
             popup.classList.add('translate-y-[150%]', 'opacity-0');
         }
     }
+
+    // Products Carousel Logic
+    const prodItems = document.querySelectorAll('.product-item');
+    let prodCurrent = 0;
+    
+    function updateProducts() {
+        if (!prodItems.length) return;
+        prodItems.forEach((item, index) => {
+            item.classList.remove('prod-active', 'prod-prev', 'prod-next', 'prod-hidden-left', 'prod-hidden-right');
+            
+            if (index === prodCurrent) {
+                item.classList.add('prod-active');
+            } else if (index === (prodCurrent - 1 + prodItems.length) % prodItems.length) {
+                item.classList.add('prod-prev');
+            } else if (index === (prodCurrent + 1) % prodItems.length) {
+                item.classList.add('prod-next');
+            } else {
+                let diff = (index - prodCurrent + prodItems.length) % prodItems.length;
+                if (diff > 1 && diff <= Math.ceil(prodItems.length / 2)) {
+                    item.classList.add('prod-hidden-right');
+                } else {
+                    item.classList.add('prod-hidden-left');
+                }
+            }
+        });
+    }
+
+    if (prodItems.length) {
+        updateProducts();
+        setInterval(() => {
+            prodCurrent = (prodCurrent + 1) % prodItems.length;
+            updateProducts();
+        }, 3500);
+    }
+
+    // Location Slideshow Logic
+    let currentLocSlide = 1;
+    setInterval(() => {
+        const s1 = document.getElementById('location-slide-1');
+        const s2 = document.getElementById('location-slide-2');
+        if (!s1 || !s2) return;
+        
+        if (currentLocSlide === 1) {
+            s1.style.opacity = '0';
+            s2.style.opacity = '1';
+            currentLocSlide = 2;
+        } else {
+            s1.style.opacity = '1';
+            s2.style.opacity = '0';
+            currentLocSlide = 1;
+        }
+    }, 4000);
 </script>
 
 <!-- Discount Popup -->
