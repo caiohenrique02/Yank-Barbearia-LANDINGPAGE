@@ -478,7 +478,8 @@
 <div>
                         <p class="text-white font-bold">Horário de Funcionamento</p>
                         <p class="text-on-tertiary">Ter - Sex: 09:00 às 19:00</p>
-                        <p class="text-on-tertiary text-xs opacity-60">Sáb, Dom e Seg: Fechado</p>
+                        <p class="text-on-tertiary">Sáb: 09:00 às 16:00</p>
+                        <p class="text-on-tertiary text-xs opacity-60">Dom e Seg: Fechado</p>
                     </div>
                 </div>
 </div>
@@ -607,8 +608,8 @@
         dateFormat: "d/m/Y",
         disable: [
             function(date) {
-                // Desabilitar Segunda (1), Sábado (6) e Domingo (0)
-                return (date.getDay() === 0 || date.getDay() === 1 || date.getDay() === 6);
+                // Desabilitar Segunda (1) e Domingo (0)
+                return (date.getDay() === 0 || date.getDay() === 1);
             }
         ],
         onChange: function (selectedDates, dateStr) {
@@ -648,7 +649,7 @@
         }
         let msg = `Olá! Gostaria de agendar um horário na Yank.\n\n*Nome:* ${name}\n*Data:* ${selectedFullDate}\n*Horário:* ${selectedTime}`;
         if (claimsDiscount) {
-            msg += `\n\n🎁 *Atenção:* Vim pelo site e quero resgatar meu desconto de 10% no primeiro corte!`;
+            msg += `\n\n🎁 *Atenção:* Vim pelo site e quero resgatar minha HIDRATAÇÃO CAPILAR no primeiro corte!`;
         }
         const encodedMsg = encodeURIComponent(msg);
         window.open(`https://wa.me/558398088795?text=${encodedMsg}`, '_blank');
@@ -751,7 +752,7 @@
     <div class="flex-1 mt-0.5">
         <h4 class="font-headline text-lg text-white mb-1">Presente Especial!</h4>
         <p class="text-sm font-body text-on-surface-variant leading-relaxed">
-            Você ganhou um desconto de <span class="text-white font-bold">10%</span> para o seu primeiro corte na <span class="text-primary">Yank Barbearia</span>.
+            Você ganhou uma <span class="text-white font-bold uppercase">HIDRATAÇÃO CAPILAR</span> para o seu primeiro corte na <span class="text-primary">Yank Barbearia</span>.
         </p>
         <button onclick="claimsDiscount = true; openBookingModal(); closeDiscountPopup();" class="mt-4 text-xs font-label uppercase tracking-[0.2em] font-black text-white hover:text-[#ff3b30] transition-colors flex items-center gap-1 group">
             RESGATAR AGORA
